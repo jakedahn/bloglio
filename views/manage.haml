@@ -1,0 +1,10 @@
+%table#entries
+  - @entries.each do |entry|
+    %tr
+      %td.id= entry.id
+      %td.title= entry.title
+      %td.comments= entry.comments.count
+      %td.delete
+        %a{:href => "delete/#{entry.id}"}= "Delete"
+    
+

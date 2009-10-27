@@ -1,0 +1,36 @@
+#entry
+  %h3.title
+    %a{:href => "entries/#{@entry.id}"}= @entry.title
+  = BlueCloth.new(@entry.body).to_html
+  #comments
+    %h4= @entry.comments.count != 0 ? "Comments:" : "There are no comments yet."
+    %a{:name => 'comments'}
+    %ol{ :class => 'comments' }
+      - for comment in @entry.comments
+        %li{ :class => 'comment'}
+          %span.info
+            %span.author
+              %a{:href => comment.url}= comment.name
+              %br
+            %span.date
+              = format_time(comment.created_at)
+          %span.body= BlueCloth.new(comment.body).to_html
+    %form{:action=> "/entries/#{@post.id}/add_comment", :method=>"post", :id => 'comment-form'}
+      %fieldset
+        %fieldset
+          %label{:for => "name"}= "Name: "
+          %input{:id => "name", :type => "text", :value => "", :name => "comment[name]"}
+
+        %fieldset
+          %label{:for => "email"}= "Email: "
+          %input{:id => "email", :type => "text", :value => "", :name => "comment[email]"}
+
+        %fieldset
+          %label{:for => "url"}= "URL: "
+          %input{:id => "url", :type => "text", :value => "", :name => "comment[url]"}
+        %fieldset
+          %label{:for => "comment"}= "URL: "
+          %textarea{:id => 'comment', :name => "comment[body]"}    
+        
+      
+        %input{:id => 'submit',:type=>"submit", :value=>"Add comment"}

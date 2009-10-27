@@ -1,0 +1,12 @@
+%div#entries
+  - @entries.each do |entry|
+    %div.entry
+      = entry.id
+      %h3.title= h entry.title
+      = markdown(truncate(entry.body, :length=>1200))
+      %div.meta
+        %ul
+          %li= link_to 'Read More', entry
+          %li
+            %a{:href => "entries/#{post.id}#comments"}= "Comments(#{post.comments.count})"
+          

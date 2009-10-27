@@ -1,0 +1,13 @@
+%div#entries
+  - @entries.each do |entry|
+    %div.entry
+      %h3.title
+        %a{:href => "entries/#{entry.id}"}= entry.title
+      = BlueCloth.new(entry.body).to_html
+      %div.meta
+        %ul
+          %li
+            %a{:href => "entries/#{entry.id}"}= "Read more..."
+          %li
+            %a{:href => "entries/#{entry.id}#comments"}= "Comments(#{entry.comments.count})"
+          

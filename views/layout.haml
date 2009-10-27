@@ -1,0 +1,23 @@
+!!! strict
+%html
+  %head
+    %meta{:"http-equiv"=>"Content-Type", :content => "text/html; charset=utf-8" }
+    %title= @title
+    %meta{:name=>"Author", :content=>"Jake Dahn"}
+    %meta{:name=>"Robots", :content=>"index,all"}
+    %meta{:name=>"Keywords", :content=>"Jake Dahn, php, ruby, rails, frontend developer, web developer, html, css, Hyperbole Design"}
+    %meta{:name=>"Description", :content=>"Jake Dahn's corner of the web."}
+    
+    %link{:rel=>"stylesheet", :href=>"/style.css", :media=>"screen"}
+    %script{:src=>"js/jquery-1.3.2.js", :type=>"text/javascript"}  
+  %body
+    %div#wrapper
+      %div#header
+        %h1
+          %a{:href => "/"}= "Jake Dahn"
+        %h2= "My corner of the web."
+      %div#content
+        = @flash
+        = yield
+      %div#footer
+        &copy; 2009 Jake Dahn
