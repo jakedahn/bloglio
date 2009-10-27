@@ -3,21 +3,25 @@
   %head
     %meta{:"http-equiv"=>"Content-Type", :content => "text/html; charset=utf-8" }
     %title= @title
-    %meta{:name=>"Author", :content=>"Jake Dahn"}
+    %meta{:name=>"Author", :content=>"Ang.st"}
     %meta{:name=>"Robots", :content=>"index,all"}
-    %meta{:name=>"Keywords", :content=>"Jake Dahn, php, ruby, rails, frontend developer, web developer, html, css, Hyperbole Design"}
-    %meta{:name=>"Description", :content=>"Jake Dahn's corner of the web."}
+    %meta{:name=>"Keywords", :content=>"Ang.st, voice blogging, twilio"}
+    %meta{:name=>"Description", :content=>"Proof of concept Twilio-dirven voice-to-text blogging."}
     
     %link{:rel=>"stylesheet", :href=>"/style.css", :media=>"screen"}
-    %script{:src=>"js/jquery-1.3.2.js", :type=>"text/javascript"}  
   %body
     %div#wrapper
       %div#header
         %h1
-          %a{:href => "/"}= "Jake Dahn"
-        %h2= "My corner of the web."
+          %a{:href => "/"}= "Bloglio."
+        %h2= "Your voice, your blog."
       %div#content
+        %h5
+          %a{:href => "/callme"}= "Call me"
+          = " | "
+          %a{:href => "/manage"}= "Manage"
+          
         = @flash
         = yield
       %div#footer
-        &copy; 2009 Jake Dahn
+        &copy; 2009 ang.st

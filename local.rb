@@ -1,3 +1,3 @@
 require 'blog'
  
-JakeBlog::App.run!
+Bloglio::App.run!

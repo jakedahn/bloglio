@@ -1,0 +1,7 @@
+%form{:action=> "/callme", :method=>"post", :id => 'comment-form'}
+  %fieldset
+    %fieldset
+      %label{:for => "phone"}= "Phone number: "
+      %input{:id => "phone", :type => "text", :value => "", :name => "phone"}
+  
+    %input{:id => 'submit',:type=>"submit", :value=>"Call me!"}

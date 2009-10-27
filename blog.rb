@@ -1,8 +1,11 @@
 require 'rubygems'
+require 'twilio'
 require 'sinatra'
 require 'active_record'
-require 'bluecloth'
+require 'redcloth'
 require 'sass'
+require 'hpricot'
+
 load 'config.rb'
 load 'models.rb'
 
@@ -11,7 +14,7 @@ load 'util/helpers.rb'
 load 'util/sessions.rb'
 load 'util/util.rb'
 
-module JakeBlog
+module Bloglio
   class App < Sinatra::Default
     set :sessions, true
     set :run, false
@@ -21,6 +24,38 @@ module JakeBlog
       @flash = get_flash.nil? ? "" : "<span class='flash'>#{get_flash}</span>"
       
       @is_admin = session["logged_in"]
+    end
+    
+    get "/callme" do 
+      haml :call_me
+    end
+
+    post "/callme" do 
+      @phone = params[:phone]
+      Twilio.connect('ACcc5890dca275b1195e9f7a68bc33d79d', 'c9bc3b6f390fa2c6f401b166d7f18c02')
+      Twilio::Call.make('6122083730', @phone, 'http://looce.com:4567/handle_call')
+      
+      haml :calling
+    end
+    
+    post "/handle_call" do
+      verb = Twilio::Verb.new { |v|
+        v.say("Please record your blog post after the beep.")
+        v.pause(:length => 1)
+        v.record(:transcribe => true, :transcribeCallback => '/handle_transcribe')
+        v.hangup
+      }    
+      verb.response
+    end
+    
+    post "/handle_transcribe" do
+    
+      entry = Entry.new
+
+      entry.title = "New voice blog from #{Time.now}"
+      entry.body  = params[:TranscriptionText] 
+
+      entry.save
     end
     
     get '/style.css' do
