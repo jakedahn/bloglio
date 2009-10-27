@@ -1,6 +1,6 @@
 require 'rubygems'
-require 'activesupport'
 require 'activerecord'
+require 'activesupport'
 
 
 def connect_to_db(mode)
