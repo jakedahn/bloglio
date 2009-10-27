@@ -1,3 +1,3 @@
-require 'blog.rb'
+require 'blog'
 run Bloglio::App
  
