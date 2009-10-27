@@ -2,7 +2,7 @@ def connect_to_db(mode)
   ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
     :encoding =>  'utf8',
-    :database => 'db/blog_' + mode.to_s + '.sqlite'
+    :database => 'db/blog_development.sqlite'
   )
 end
 
