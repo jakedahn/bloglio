@@ -1,5 +1,5 @@
 require 'blog'
-require 'config.rb'
+require 'config'
 
 run Bloglio::App
  
