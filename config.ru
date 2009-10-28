@@ -1,3 +1,3 @@
 require 'blog'
  
-Bloglio::App.run!
+run Sinatra::Application
