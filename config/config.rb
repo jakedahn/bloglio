@@ -1,5 +1,8 @@
 def connect_to_db(mode)
   ActiveRecord::Base.establish_connection(
+    :username => 'jakedahn',
+    :password => '',
+    :host => 'localhost',
     :adapter => 'postgresql',
     :encoding => 'unicode',
     :database => 'blog_development'
