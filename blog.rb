@@ -68,7 +68,7 @@ module Bloglio
     get '/' do
       @entries = Entry.all(:limit => 3, :order => 'created_at DESC')
 
-      @title = "Jake Dahn's corner of the web."
+      @title = "Ang.st, voice blogging, twilio."
       haml :index
     end
 
