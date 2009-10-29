@@ -9,7 +9,7 @@
 
         %object{:id => entry.id, :data => "/flash/player.swf", :type => "application/x-shockwave-flash", :height => "24", :width => "290" }
           %param{ :name => "movie", :value => "/flash/player.swf" }
-          %param{ :name => "FlashVars", :value => "playerID=#{entry.id}&soundFile=#{entry.recording_url}" }
+          %param{ :name => "FlashVars", :value => "playerID=#{entry.id}&soundFile=#{entry.recording_url}.wav" }
           %param{ :name => "quality", :value => "high" }
           %param{ :name => "menu", :value => "false" }
           %param{ :name => "wmode", :value => "transparent" }
