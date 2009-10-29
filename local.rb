@@ -1,2 +1,3 @@
 require 'blog'
-run Bloglio::App
+ 
+Bloglio::App.run!
