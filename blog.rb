@@ -33,7 +33,7 @@ module Bloglio
     post "/callme" do 
       @phone = params[:phone]
       Twilio.connect('ACcc5890dca275b1195e9f7a68bc33d79d', 'c9bc3b6f390fa2c6f401b166d7f18c02')
-      Twilio::Call.make('6122083730', @phone, 'http://looce.com:4567/handle_call')
+      Twilio::Call.make('6122083730', @phone, 'http://bloglio.heroku.com/handle_call')
   
       haml :calling
     end
