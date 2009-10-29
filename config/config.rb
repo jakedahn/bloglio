@@ -2,7 +2,7 @@ def connect_to_db(mode)
   ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
     :encoding =>  'utf8',
-    :database => ENV['DATABASE_URL']
+    :database => 'db/blog_development.sqlite'
   )
 end
 
@@ -20,4 +20,3 @@ end
 configure :test do
   common_config(:test)
 end
-ActiveRecord::Base.establish_connection( :username => 'jakedahn', :password => 'batsoup221', :host => 'localhost', :adapter => 'postgresql', :encoding => 'unicode', :database => "blog_development" )
