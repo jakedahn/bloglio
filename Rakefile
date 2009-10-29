@@ -5,7 +5,7 @@ namespace 'db' do
   desc "Create db schema"
   task :create do        
     require 'activerecord'
-    require 'config.rb'
+    require 'config/config.rb'
 
     ENV.include?("mode") ? connect_to_db(ENV["mode"]) : connect_to_db(:development)
   
