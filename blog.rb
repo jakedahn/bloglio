@@ -6,7 +6,7 @@ require 'hpricot'
 require 'activerecord'
 require 'twilio'
 
-load 'config.rb'
+load 'config/config.rb'
 load 'models.rb'
 
 load 'util/flash.rb'
