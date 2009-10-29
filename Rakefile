@@ -7,8 +7,8 @@ namespace 'db' do
     require 'activerecord'
     require 'config/config.rb'
 
-    # ENV.include?("mode") ? connect_to_db(ENV["mode"]) : connect_to_db(:development)
-  connect_to_db(:development)
+    ENV.include?("mode") ? connect_to_db(ENV["mode"]) : connect_to_db(:development)
+  
     ActiveRecord::Migration.create_table :entries do |t|
       t.string :title
       t.text :body
