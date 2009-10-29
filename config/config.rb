@@ -1,5 +1,5 @@
 def connect_to_db(mode)
-  dbconfig = YAML.load(File.read('config/database.yml'))
+  dbconfig = YAML.load(File.read('database.yml'))
   ActiveRecord::Base.establish_connection dbconfig[mode]
   
 end
