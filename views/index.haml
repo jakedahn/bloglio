@@ -3,7 +3,9 @@
     %div.entry
       %h3.title
         %a{:href => "entries/#{entry.id}"}= entry.title
-      = RedCloth.new(entry.body).to_html
+      - if entry.body !nil
+        = RedCloth.new(entry.body).to_html
+        
       %div.player
         %h4= "Listen to this blog post"
 
