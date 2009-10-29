@@ -33,7 +33,8 @@ module Bloglio
     post "/callme" do 
       @phone = params[:phone]
       Twilio.connect('ACcc5890dca275b1195e9f7a68bc33d79d', 'c9bc3b6f390fa2c6f401b166d7f18c02')
-      Twilio::Call.make('6122083730', @phone, 'http://bloglio.heroku.com/handle_call')
+      # Twilio::Call.make('6122083730', @phone, 'http://bloglio.heroku.com/handle_call')
+      Twilio::Call.make('6122083730', @phone, 'http://looce.com:4567/handle_call')
   
       haml :calling
     end
@@ -49,11 +50,12 @@ module Bloglio
     end
 
     post "/handle_transcribe" do
-
+    
       entry = Entry.new
 
       entry.title = "New voice blog from #{Time.now}"
       entry.body  = params[:TranscriptionText] 
+      entry.recording_url = params[:RecordingUrl]
 
       entry.save
     end
@@ -65,6 +67,7 @@ module Bloglio
 
     get '/' do
       @entries = Entry.all(:limit => 3, :order => 'created_at DESC')
+
       @title = "Jake Dahn's corner of the web."
       haml :index
     end
