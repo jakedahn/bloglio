@@ -1,9 +1,7 @@
 def connect_to_db(mode)
-  ActiveRecord::Base.establish_connection(
-    :adapter => 'sqlite3',
-    :encoding =>  'utf8',
-    :database => 'db/blog_development.sqlite'
-  )
+  dbconfig = YAML.load(File.read('config/database.yml'))
+  ActiveRecord::Base.establish_connection dbconfig[mode]
+  
 end
 
 def common_config(mode)
