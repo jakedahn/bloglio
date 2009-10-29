@@ -1,10 +1,11 @@
 require 'rubygems'
 require 'sinatra'
+require 'twilio'
+
 require 'redcloth'
 require 'sass'
 require 'hpricot'
 require 'activerecord'
-require 'twilio'
 
 load 'config.rb'
 load 'models.rb'
