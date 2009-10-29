@@ -2,7 +2,7 @@ def connect_to_db(mode)
   ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
     :encoding =>  'utf8',
-    :database => 'db/blog_development.sqlite'
+    :database => 'db/heroku.sqlite'
   )
 end
 
