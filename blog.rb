@@ -4,6 +4,7 @@ require 'sinatra'
 require 'redcloth'
 require 'sass'
 require 'hpricot'
+require 'activerecord'
 
 load 'config.rb'
 load 'models.rb'
