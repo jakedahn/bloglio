@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'twilio'
 require 'sinatra'
-require 'activerecord'
 require 'redcloth'
 require 'sass'
 require 'hpricot'
