@@ -1,0 +1,8 @@
+#nav
+  - if @offset == @entry_count-3
+    %a{:class => "prev", :href => @page_num-1}= "&laquo; Earlier"
+  - elsif @page_num < 1
+    %a{:class => "next", :href => "/page/#{@page_num+1}"}= "Later &raquo;"
+  - else 
+    %a{:class => "prev", :href => @page_num-1}= "&laquo; Earlier"
+    %a{:class => "next", :href => @page_num+1}= "Later &raquo;"

@@ -17,9 +17,10 @@
         %h1
           %a{:href => "/"}= "Bloglio."
         %h2= "Your voice, your blog."
+        
+        %a{:id => "callMe", :href => "/callme"}= "Call me"
+        
       %div#content
-        %h5
-          %a{:href => "/callme"}= "Call me"
           
         = @flash
         = yield

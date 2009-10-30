@@ -1,3 +1,4 @@
+= partial(:_pagination)
 %div#entries
   - @entries.each do |entry|
     %div.entry
@@ -6,7 +7,7 @@
       = entry.body
       %div.player
         %h4= "Listen to this blog post"
-
+      
         %object{:id => entry.id, :data => "/flash/player.swf", :type => "application/x-shockwave-flash", :height => "24", :width => "290" }
           %param{ :name => "movie", :value => "/flash/player.swf" }
           %param{ :name => "FlashVars", :value => "playerID=#{entry.id}&soundFile=#{entry.recording_url}.mp3" }

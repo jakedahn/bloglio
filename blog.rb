@@ -66,12 +66,32 @@ module Bloglio
     end
 
     get '/' do
+      @title = "Ang.st, voice blogging, twilio."
+      
+      @entry_count = Entry.all.count
+      @offset = 0
+      @page_num = 0
+      
       @entries = Entry.all(:limit => 3, :order => 'created_at DESC')
 
-      @title = "Ang.st, voice blogging, twilio."
       haml :index
     end
-
+    
+    get '/page/:page' do
+      @title = "Ang.st, voice blogging, twilio."
+      
+      @entry_count = Entry.all.count
+      @offset = params[:page].to_i*3
+      @page_num = params[:page].to_i
+      
+      @entries = Entry.all(:limit => 3, :order => 'created_at DESC', :offset => @offset)
+      if params[:page].to_i == 0
+        redirect "/"
+        
+      end
+      haml :index
+    end
+    
     get '/add' do secure
       @title = "Add entry."
       haml :post_add
