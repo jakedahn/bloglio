@@ -68,7 +68,7 @@ module Bloglio
     get '/' do
       @title = "Ang.st, voice blogging, twilio."
       
-      @entry_count = Entry.all.count
+      @entry_count = Entry.all.size
       @offset = 0
       @page_num = 0
       
@@ -80,7 +80,7 @@ module Bloglio
     get '/page/:page' do
       @title = "Ang.st, voice blogging, twilio."
       
-      @entry_count = Entry.all.count
+      @entry_count = Entry.all.size
       @offset = params[:page].to_i*3
       @page_num = params[:page].to_i
       
